@@ -39,6 +39,5 @@ yabai -m rule --add app="^Finder$" manage=off
 
 # move some apps automatically to specific spaces
 yabai -m rule --add app="^WezTerm$" space=^1
-yabai -m rule --add app="^Google Chrome$" space=2
 yabai -m rule --add app="^Slack$" space=4
 yabai -m rule --add app="^Microsoft Outlook$" space=4

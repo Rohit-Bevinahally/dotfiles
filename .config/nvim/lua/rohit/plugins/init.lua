@@ -7,4 +7,5 @@ return {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
     },
+    "folke/twilight.nvim",
 }

@@ -33,6 +33,8 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
+                ['<C-d>'] = cmp.mapping.select_prev_item({ count = 4 }),
+                ['<C-f>'] = cmp.mapping.select_next_item({ count = 4 }),
                 ["<C-Space>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-y>"] = cmp.mapping.complete(), -- show completion suggestions
             }),
@@ -42,12 +44,15 @@ return {
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
+                { name = "codeium" }, -- AI
             }),
             -- configure lspkind for vs-code like pictograms in completion menu
             formatting = {
                 format = lspkind.cmp_format({
+                    mode = "symbol",
                     maxwidth = 50,
                     ellipsis_char = "...",
+                    symbol_map = { Codeium = "", },
                 }),
             },
             -- Add borders around the popup menu

@@ -1,0 +1,5 @@
+[status]
+# Mode
+mode_normal = { fg = "#303446", bg = "#82a0f0", bold = true }
+mode_select = { fg = "#303446", bg = "#a6d189", bold = true }
+mode_unset  = { fg = "#303446", bg = "#eebebe", bold = true }

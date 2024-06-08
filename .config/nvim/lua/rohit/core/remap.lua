@@ -32,8 +32,8 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Buffer navigation
-vim.keymap.set("n", "<C-b>", "<cmd>bnext<cr>")
-vim.keymap.set("n", "<C-v>", "<cmd>bprevious<cr>")
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<cr>")
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<cr>")
 
 -- Splits control
 vim.keymap.set("n", "fw", "<C-w>w")

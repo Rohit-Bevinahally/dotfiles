@@ -20,6 +20,9 @@ return {
                     width = 0.95,
                     prompt_position = 'top',
                     mirror = true,
+                    vertical = {
+                        preview_cutoff = 0,
+                    },
                 },
                 -- Icons
                 prompt_prefix = " 󰭎 ",
