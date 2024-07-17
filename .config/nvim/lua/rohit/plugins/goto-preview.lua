@@ -21,5 +21,7 @@ return {
         stack_floating_preview_windows = true, -- Whether to nest floating windows
         preview_window_title = { enable = true, position = "left" }, -- Whether 
       }
+      vim.keymap.set("n", "gpc", "<cmd>lua require('goto-preview').close_all_win({ skip_curr_window = true })<cr>",
+      { desc = "Close all prevew windows except current"})
     end,
 }

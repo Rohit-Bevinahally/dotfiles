@@ -33,18 +33,18 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
-                ['<C-d>'] = cmp.mapping.select_prev_item({ count = 4 }),
-                ['<C-f>'] = cmp.mapping.select_next_item({ count = 4 }),
+                ['<C-u>'] = cmp.mapping.select_prev_item({ count = 4 }),
+                ['<C-d>'] = cmp.mapping.select_next_item({ count = 4 }),
                 ["<C-Space>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-y>"] = cmp.mapping.complete(), -- show completion suggestions
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({
+                { name = "codeium" }, -- AI
                 { name = "nvim_lsp" },
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
-                { name = "codeium" }, -- AI
             }),
             -- configure lspkind for vs-code like pictograms in completion menu
             formatting = {
@@ -52,7 +52,7 @@ return {
                     mode = "symbol",
                     maxwidth = 50,
                     ellipsis_char = "...",
-                    symbol_map = { Codeium = "", },
+                    symbol_map = { Codeium = "󰁨 " },
                 }),
             },
             -- Add borders around the popup menu
@@ -65,6 +65,10 @@ return {
                     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
                     winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                 },
+            },
+            -- Virtual text
+            experimental = {
+                ghost_text = {hlgroup = "Comment"},
             },
         })
     end,

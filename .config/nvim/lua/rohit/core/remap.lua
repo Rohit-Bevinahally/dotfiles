@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Lex) -- Use netrw
 
 -- Move a highlighted region between other lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -20,24 +19,18 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Delete to void register
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>D", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Quickfix navigation
--- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
--- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Buffer navigation
 vim.keymap.set("n", "<leader>bn", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<cr>")
-
--- Splits control
-vim.keymap.set("n", "fw", "<C-w>w")
-vim.keymap.set("n", "fo", "<C-w>o")
 
 -- Quickly replace current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -63,3 +56,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
+
+-- Convert float/split to buffer
+vim.keymap.set("n", "<C-w>B", "mZ<C-w>q'Z", { desc = "Break out into new buffer" })
+
+-- Copy path of current file to clipboard
+vim.keymap.set("n", "<leader>cfp", ":let @+ = expand('%')<cr>", { desc = "[C]opy current [F]ile [P]ath" })
+vim.keymap.set("n", "<leader>cfP", ":let @+ = expand('%:p')<cr>", { desc = "[C]opy full current [F]ile [P]ath" })
+
+-- Toggle text wrap
+vim.keymap.set("n", "<leader>tw", ":set wrap!<cr>", { desc = "[T]oggle [W]rap" })
