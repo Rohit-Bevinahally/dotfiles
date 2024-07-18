@@ -14,12 +14,12 @@ for i = 1, 10, 1 do
       padding_left = 15,
       padding_right = 8,
       color = colors.white,
-      highlight_color = colors.red,
+      highlight_color = colors.white,
     },
     label = {
       padding_right = 20,
-      color = colors.grey,
-      highlight_color = colors.white,
+      color = colors.blue,
+      highlight_color = colors.magenta,
       font = "sketchybar-app-font:Regular:16.0",
       y_offset = -1,
     },
@@ -104,17 +104,17 @@ local spaces_indicator = sbar.add("item", {
   padding_right = 0,
   icon = {
     padding_left = 8,
-    padding_right = 9,
+    padding_right = 8,
     color = colors.grey,
     string = icons.switch.on,
   },
-  label = {
-    width = 0,
-    padding_left = 0,
-    padding_right = 8,
-    string = "Spaces",
-    color = colors.bg1,
-  },
+  -- label = {
+  --   width = 0,
+  --   padding_left = 0,
+  --   padding_right = 8,
+  --   string = "Spaces",
+  --   color = colors.bg1,
+  -- },
   background = {
     color = colors.with_alpha(colors.grey, 0.0),
     border_color = colors.with_alpha(colors.bg1, 0.0),
@@ -154,7 +154,7 @@ spaces_indicator:subscribe("mouse.entered", function(env)
         border_color = { alpha = 1.0 },
       },
       icon = { color = colors.bg1 },
-      label = { width = "dynamic" }
+      label = { width = 0 }
     })
   end)
 end)

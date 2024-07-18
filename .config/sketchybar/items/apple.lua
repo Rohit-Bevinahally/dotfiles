@@ -7,6 +7,7 @@ sbar.add("item", { width = 5 })
 
 local apple = sbar.add("item", {
   icon = {
+    color = colors.black,
     font = { size = 16.0 },
     string = icons.apple,
     padding_right = 8,
@@ -14,7 +15,7 @@ local apple = sbar.add("item", {
   },
   label = { drawing = false },
   background = {
-    color = colors.bg2,
+    color = colors.blue,
     border_color = colors.black,
     border_width = 1
   },
