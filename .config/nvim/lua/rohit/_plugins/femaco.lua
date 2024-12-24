@@ -1,2 +1,0 @@
---require("femaco").setup()
---vim.keymap.set("n", "<leader>fe", "<cmd>FeMaco<cr>")

@@ -1,0 +1,5 @@
+[flavor]
+deps = []
+
+[plugin]
+deps = [{ use = "Reledia/glow", rev = "=f52b382" }, { use = "yazi-rs/plugins:full-border", rev = "ad52adf" }, { use = "yazi-rs/plugins:git", rev = "ad52adf" }]

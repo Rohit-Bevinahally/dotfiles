@@ -1,9 +1,11 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
+    lazy = vim.fn.argc(-1) == 0,
     build = ":TSUpdate",
     dependencies = {
         "windwp/nvim-ts-autotag",
+        { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
     },
     config = function()
         require'nvim-treesitter.configs'.setup {

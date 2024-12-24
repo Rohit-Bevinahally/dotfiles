@@ -15,18 +15,24 @@ local cpu = sbar.add("graph", "widgets.cpu" , 42, {
     border_color = { alpha = 0 },
     drawing = true,
   },
-  icon = { string = icons.cpu },
+  icon = {
+    font = {
+        style = settings.font.style_map["Semibold"],
+        size = 18.0,
+    },
+    string = icons.cpu
+  },
   label = {
-    string = "cpu ??%",
+    string = "??%",
     font = {
       family = settings.font.numbers,
       style = settings.font.style_map["Bold"],
-      size = 9.0,
+      size = 12.0,
     },
     align = "right",
-    padding_right = 0,
+    padding_right = 5,
     width = 0,
-    y_offset = 4
+    y_offset = 2
   },
   padding_right = settings.paddings + 6
 })
@@ -49,17 +55,20 @@ cpu:subscribe("cpu_update", function(env)
 
   cpu:set({
     graph = { color = color },
-    label = "cpu " .. env.total_load .. "%",
+    label = env.total_load .. "%",
   })
 end)
 
-cpu:subscribe("mouse.clicked", function(env)
+cpu:subscribe("mouse.clicked", function()
   sbar.exec("open -a 'Activity Monitor'")
 end)
 
 -- Background around the cpu item
 sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
-  background = { color = colors.bg1 }
+  background = {
+      color = colors.transparent,
+      border_color = colors.grey,
+  }
 })
 
 -- Background around the cpu item

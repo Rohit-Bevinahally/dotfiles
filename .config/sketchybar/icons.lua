@@ -7,7 +7,12 @@ local icons = {
     apple = "􀣺",
     gear = "􀍟",
     cpu = "􀫥",
+    memory = "􀫦",
     clipboard = "􀉄",
+    window = "􀏜",
+    chevron_right = "􀆊",
+    calendar = "􀉉",
+    clock = "􀡑",
 
     switch = {
       on = "􁏮",
@@ -40,6 +45,11 @@ local icons = {
       forward = "􀊌",
       play_pause = "􀊈",
     },
+    spaces = {
+        terminal = "􀩼",
+        browser = "􀆪",
+        social = "􀉬",
+    }
   },
 
   -- Alternative NerdFont icons
@@ -49,6 +59,7 @@ local icons = {
     apple = "",
     gear = "",
     cpu = "",
+    memory = "",
     clipboard = "Missing Icon",
 
     switch = {

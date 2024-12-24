@@ -1,11 +1,8 @@
 return {
     "nvim-lua/plenary.nvim", -- lua functions that many plugins use
-    'mbbill/undotree',
-    'windwp/nvim-ts-autotag',
-    'p00f/clangd_extensions.nvim', -- Improve clangd experience
-    {
-        "stevearc/dressing.nvim",
-        event = "VeryLazy",
-    },
-    "folke/twilight.nvim",
+    { "folke/twilight.nvim", event = "VeryLazy" },
+    { "stevearc/dressing.nvim", event = "VeryLazy" },
+    { "fei6409/log-highlight.nvim", event = "BufRead *.log", opts = {} },
+    { 'windwp/nvim-ts-autotag', lazy = true },
+    { 'mbbill/undotree', keys = { {"<leader>u", "<cmd>UndotreeToggle<cr>", { desc = "Undo Tree" } } } },
 }

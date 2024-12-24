@@ -1,0 +1,14 @@
+[[manager.prepend_keymap]]
+on   = [ "g", "d" ]
+run  = "cd ~/Downloads"
+desc = "Go to Downloads"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "p" ]
+run  = "cd ~/ProteusWeb"
+desc = "go to ProteusWeb"
+
+[[manager.prepend_keymap]]
+on = ["E"]
+run = "plugin eza-preview"
+desc = "Toggle tree/list dir preview"

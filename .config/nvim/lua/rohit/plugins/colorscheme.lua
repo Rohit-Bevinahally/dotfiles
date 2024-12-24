@@ -1,20 +1,4 @@
-function ApplyColorScheme(color)
-    color = color or "gruvbox-material"
-    vim.cmd.colorscheme(color)
-
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
 return {
-    {
-        'sainnhe/gruvbox-material',
-        lazy = false,
-        priority = 1000,
-        config = function ()
-            -- ApplyColorScheme()
-        end
-    },
     {
         'folke/tokyonight.nvim',
         lazy = false,
@@ -26,11 +10,32 @@ return {
                 -- disable italic for functions
                 transparent = true,
                 styles = {
-                    functions = {}
+                    functions = {},
+                    floats = "transparent",
                 },
+                dim_inactive = true,
+
+                on_highlights = function(hl, c)
+                    hl.TelescopeBorder = {
+                        fg = "#29a4bd"
+                    }
+                    hl.TelescopePromptBorder = {
+                        fg = "#ff9e64"
+                    }
+                    hl.TelescopePromptTitle = {
+                        fg = "#ff9e64"
+                    }
+                    hl.LspInlayHint = {
+                        fg = "#565f89",
+                        italic = true
+                    }
+                    hl.WinSeparator = {
+                        fg = "#7aa2f7",
+                        bold = true
+                    }
+                end,
             })
-            vim.cmd.hi 'Comment gui=none'
-            ApplyColorScheme("tokyonight")
-        end
+            vim.cmd[[colorscheme tokyonight]]
+        end,
     },
 }
