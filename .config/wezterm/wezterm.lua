@@ -12,6 +12,14 @@ local config = {
     color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
     color_scheme = "tokyonight_storm",
     -- color_scheme = "Everforest Dark (Soft)",
+    -- background = {
+    --     {
+    --         source = {
+    --             File = '/Users/rohitb/Documents/wally/Aerial_City.jpg',
+    --         },
+    --         opacity = 0.5
+    --     },
+    -- },
 
     -- Font
     font = fc.font,
@@ -21,8 +29,7 @@ local config = {
     freetype_load_flags = 'NO_HINTING',
 
     window_decorations = "RESIZE",
-    window_background_opacity = 0.8,
-    macos_window_background_blur = 40,
+    macos_window_background_blur = 30,
     window_padding = {
         left = 2,
         right = 0,

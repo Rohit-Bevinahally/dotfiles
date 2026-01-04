@@ -1,14 +1,21 @@
-[[manager.prepend_keymap]]
-on   = [ "g", "d" ]
-run  = "cd ~/Downloads"
-desc = "Go to Downloads"
-
-[[manager.prepend_keymap]]
-on   = [ "g", "p" ]
-run  = "cd ~/ProteusWeb"
-desc = "go to ProteusWeb"
-
-[[manager.prepend_keymap]]
-on = ["E"]
-run = "plugin eza-preview"
-desc = "Toggle tree/list dir preview"
+[mgr]
+prepend_keymap = [
+    { on = ["g", "d"], run = "cd ~/Downloads", desc = "Go to Downloads" },
+    { on = ["g", "r"], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"' },
+    { on = ["<C-f>"],  run = "seek 5", desc = "Seek 5 lines forward" },
+    { on = ["<C-b>"],  run = "seek -5", desc = "Seek 5 lines backward" },
+    { on = ["<C-d>"],  run = "plugin diff", desc = "Diff the selected with the hovered file" },
+    { on = ["<C-p>"],  run = 'shell -- qlmanage -p "$@"' },
+    { on = ["<C-s>"],  run = 'shell -- drag "$@"', desc = "Drag selected files out of yazi" },
+    { on = ["b", "a"], run = "plugin mactag add", desc = "Tag selected files" },
+    { on = ["b", "r"], run = "plugin mactag remove", desc = "Untag selected files" },
+    { on = ["c", "m"], run = "plugin chmod", desc = "Chmod on selected files" },
+    { on = "F",        run = "plugin smart-filter", desc = "Smart filter" },
+    { on = "P",        run = "plugin toggle-pane max-preview", desc = "Maximize or restore the preview pane" },
+    { on = "M",        run = "plugin toggle-pane max-current", desc = "Maximize or restore the current pane" },
+    { on = "A",        run = "plugin toggle-pane min-parent", desc = "Hide or restore the parent pane" },
+    { on = "R",        run = "plugin toggle-pane reset", desc = "Reset to original view" },
+    { on = "U",        run = "shell --block --confirm 'uz {files}'" },
+    { on  = "K",       run = "plugin parent-arrow -1" },
+    { on  = "J",       run = "plugin parent-arrow 1" },
+]

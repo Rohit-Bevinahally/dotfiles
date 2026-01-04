@@ -1,75 +1,52 @@
+palette = "default"
+
 format = """
-[  ](bg:#769ff0 fg:#090c0c)\
+[╭](fg:separator)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\
 $git_metrics\
-[](fg:#394260)\
-$package\
-$nodejs\
 $rust\
 $lua\
 $python\
-\n$character"""
+$line_break\
+[╰ ](fg:separator)\
+$character"""
 
 command_timeout = 5000
 
+
+[palettes.default]
+icon       = "#161514"
+background = "#3b4261"
+directory  = "#7aa2f7"
+separator  = "#3b4261"
+
 [directory]
-style = "fg:#090c0c bg:#769ff0"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+format = "[─](fg:separator)[](fg:directory)[􀈕  ](fg:icon bg:directory)[ $path](fg:directory bg:background)[ ](fg:background)"
+truncation_length = 0
 
 [directory.substitutions]
-"Documents" = "󰈙 "
+"Documents" = "􀉀 "
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
 
-[git_branch]
-symbol = "󰊤  "
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
-
 [git_status]
-style = "bg:#394260"
-format = '[[($ahead_behind$stashed$modified$staged)](fg:#769ff0 bg:#394260)]($style)'
-ahead = '⇡${count} '
-diverged = '⇕⇡${ahead_count}⇣${behind_count} '
-behind = ' ⇣${count} '
-stashed = " 󱧕 ${count} "
-modified = "  ${count} " 
-staged = " 󰜄 ${count} "
-
-[git_metrics]
-format = '[ +$added ]($added_style)[-$deleted]($deleted_style)'
-added_style = "fg:#769ff0 bg:#394260"
-deleted_style = "fg:#769ff0 bg:#394260"
-disabled = false
-
-[package]
-symbol = "  "
-style = "bg:#212736"
-format = '[[ $symbol($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[nodejs]
-symbol = "  "
-style = "bg:#212736"
-format = '[[ $symbol($version) ](fg:#769ff0 bg:#212736)]($style)'
-
-[rust]
-style = "bg:#212736"
-format = '[[ $symbol($version) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[($ahead_behind$stashed$modified$staged)](fg:directory)'
+ahead = '􀄨 ${count} '
+diverged = '${ahead_count} 􀙠  ${behind_count} '
+behind = '􀄩 ${count} '
+stashed = " 􀐚  ${count} "
+modified = "  ${count} " 
+staged = " 􀃜 ${count} "
 
 [lua]
-symbol = "  "
-style = "bg:#212736"
-format = '[[ $symbol($version) ](fg:#769ff0 bg:#212736)]($style)'
+symbol = " "
 
-[python]
-style = "bg:#212736"
-format = '[[ $symbol($version) ](fg:#769ff0 bg:#212736)]($style)'
+[fill]
+style = 'fg:separator'
+symbol = "─"
 
 [character]
 success_symbol = "[λ](bold blue)"

@@ -1,3 +1,4 @@
-require("rohit.core.set")
-require("rohit.core.remap")
+require("rohit.core.options")
+require("rohit.core.keybinds")
 require("rohit.core.misc")
+require("rohit.core.lsp")

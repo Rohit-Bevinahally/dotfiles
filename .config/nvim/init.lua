@@ -1,2 +1,5 @@
-require("rohit.core")
-require("rohit.lazy")
+if vim.g.vscode then
+    require('cursor')
+else
+    require('rohit')
+end

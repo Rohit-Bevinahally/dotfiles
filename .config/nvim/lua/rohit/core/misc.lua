@@ -1,49 +1,79 @@
 -- Set of misc settings, commands, and keymaps
 -- Also used to declare global functions
 
--- Toggle Twilight
-vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>Twilight<cr>", { noremap = true, silent = true, desc = "[T]oggle [T]wilight" })
-
--- Prevent FugitiveObject from getting unlisted on bufleave
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'FugitiveObject',
-  callback = function()
-    vim.opt_local.bufhidden = ''
-  end
-})
-
 -- Prevent auto adding comment on new line
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 
--- Extract text from visual selection
-function vim.getVisualSelection()
-    local current_clipboard_content = vim.fn.getreg('"')
-    vim.cmd('noau normal! "vy"')
-    local text = vim.fn.getreg('v')
-    vim.fn.setreg('v', {})
-    vim.fn.setreg('"', current_clipboard_content)
-    text = string.gsub(text, "\n", "")
-    if #text > 0 then
-        return text
-    else
-        return ''
-    end
+-- Change buffer to read-only mode with ANSI color codes rendered
+function Ansi_colorize()
+  vim.wo.relativenumber = false
+  vim.wo.statuscolumn = ""
+  vim.wo.signcolumn = "no"
+  vim.opt.listchars = { space = " " }
+
+  local buf = vim.api.nvim_get_current_buf()
+
+  local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+  while #lines > 0 and vim.trim(lines[#lines]) == "" do
+    lines[#lines] = nil
+  end
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+
+  vim.api.nvim_chan_send(vim.api.nvim_open_term(buf, {}), table.concat(lines, "\r\n"))
+  vim.keymap.set("n", "q", "<cmd>qa!<cr>", { silent = true, buffer = buf })
+  vim.api.nvim_create_autocmd("TextChanged", { buffer = buf, command = "normal! G$" })
+  vim.api.nvim_create_autocmd("TermEnter", { buffer = buf, command = "stopinsert" })
 end
 
--- Highlight cursorline only in active window
-vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+vim.keymap.set("n", "<leader>co", "<cmd>lua Ansi_colorize()<cr>", { silent = true })
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
+-- Set python3 path for faster startup
+vim.g.python3_host_prog = os.getenv("HOME") .. '/.pyenv/shims/python3'
+
+-- Trim whitespace in buffer
+vim.keymap.set('n', '<leader>wt', function()
+  local save_cursor = vim.api.nvim_win_get_cursor(0)
+  vim.cmd('%s/\\s\\+$//e')
+  vim.api.nvim_win_set_cursor(0, save_cursor)
+end, { desc = '[T]rim [W]hitespace' })
+
+-- Smart close for buffers, splits, quickfix list
+vim.api.nvim_set_keymap('n', '<leader>q', '', {
+  noremap = true,
+  silent = true,
   callback = function()
-    if vim.w.auto_cursorline then
-      vim.wo.cursorline = true
-      vim.w.auto_cursorline = nil
+    local quickfix_open = false
+    for _, win in ipairs(vim.fn.getwininfo()) do
+      if win.quickfix == 1 then
+        quickfix_open = true
+        break
+      end
     end
+
+    if quickfix_open then
+      vim.cmd('cclose')
+      return
+    end
+
+    if vim.fn.winnr('$') > 1 then
+      vim.cmd('close')
+      return
+    end
+
+    require('snacks').bufdelete()
   end,
 })
-vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-  callback = function()
-    if vim.wo.cursorline then
-      vim.w.auto_cursorline = true
-      vim.wo.cursorline = false
-    end
-  end,
+
+-- Custom filetype mapping
+vim.filetype.add({
+    extension = {
+        ['mp'] = 'python'
+    }
 })

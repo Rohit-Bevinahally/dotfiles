@@ -13,7 +13,7 @@ return {
     spec = {
         {
             mode = {"n", "v"},
-            { "<leader>p", group = "Telescope" },
+            { "<leader>k", group = "Picker" },
             { "<leader>t", group = "Toggle" },
             { "<leader>b", group = "Buffer" },
             { "<leader>o", group = "Overseer" },

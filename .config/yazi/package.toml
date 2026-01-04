@@ -1,5 +1,42 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "5d726c0"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "5d726c0"
+hash = "d6f60c24d8c0cf57a855bf46115b2502"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "5d726c0"
+hash = "47865a70cade14a0b9b6bc6a54f16bdb"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mactag"
+rev = "5d726c0"
+hash = "72dfb25e9d0c015365827431e28df322"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "5d726c0"
+hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "5d726c0"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "5d726c0"
+hash = "2143a53182dbbe935a1abd1623424aa5"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "5d726c0"
+hash = "1adc12c2b2b025411ab61eb8f0879574"
+
 [flavor]
 deps = []
-
-[plugin]
-deps = [{ use = "Reledia/glow", rev = "=f52b382" }, { use = "yazi-rs/plugins:full-border", rev = "ad52adf" }, { use = "yazi-rs/plugins:git", rev = "ad52adf" }]

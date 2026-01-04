@@ -9,6 +9,7 @@ return {
   magenta = 0xffbb9af7,
   grey = 0xff7f8490,
   transparent = 0x00000000,
+  jet_black = 0xff000000,
 
   theme = {
       light = 0xff829181,

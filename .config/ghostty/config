@@ -1,28 +1,46 @@
-theme = tokyonight-storm
+theme = TokyoNight Storm
+foreground = #95b1ac
 
 # Font
-font-family = "JetBrainsMono Nerd Font"
-font-family-italic = "Maple Mono"
-font-family-bold-italic = "Maple Mono"
+font-family = Maple Mono
+font-feature = ss06
+font-family = SF Pro
 font-size = 18
-font-feature = "zero"
-font-feature = "cv07"
-font-feature = "cv11"
-font-feature = "cv12"
-font-feature = "cv16"
-bold-is-bright = true
+
+bold-color = #58b99d
+# background-image = /Users/rohitb/wallpapers/walls-catppuccin-mocha/eclipse.jpg
+# background-image = /Users/rohitb/wallpapers/main/eclipse-tokyo-night.png
+# background-image = /Users/rohitb/Documents/wally/
+# background-image-opacity = 0.05
+# background-image-position = center
+# background-image-fit = cover
+custom-shader = /Users/rohitb/repos/ghostty-shaders/cursor-smear-fade.glsl
 
 # Window
-custom-shader=/Users/rohitb/repos/ghostty-shaders/gradient-spread.glsl
-custom-shader-animation = false
-# background-opacity = 0.90
-# background-blur-radius = 20
-window-save-state = always
+background-opacity = 0.95
+background-blur-radius = 70
+# window-save-state = always
 
 # Cursor
 mouse-hide-while-typing = true
-cursor-invert-fg-bg = true
+cursor-color = #95b1ac
+cursor-text = #000000
+cursor-style = bar
 
 # MacOS
 macos-titlebar-style = hidden
 macos-option-as-alt = true
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-screen-color = #23a9d5
+macos-icon-ghost-color = #1c617b
+
+# Quick terminal
+quick-terminal-position = bottom
+
+# Keybinds
+keybind = super+ctrl+h=goto_split:left
+keybind = super+ctrl+j=goto_split:bottom
+keybind = super+ctrl+k=goto_split:top
+keybind = super+ctrl+l=goto_split:right
+keybind = alt+backspace=text:\x17

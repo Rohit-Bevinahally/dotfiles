@@ -149,6 +149,7 @@ return {
   ["Reeder"] = ":reeder5:",
   ["Code"] = ":code:",
   ["Code - Insiders"] = ":code:",
+  ["Cursor"] = ":cursor:",
   ["Notion"] = ":notion:",
   ["Final Cut Pro"] = ":final_cut_pro:",
   ["Zotero"] = ":zotero:",
@@ -207,6 +208,6 @@ return {
   ["Thunderbird"] = ":thunderbird:",
   ["Firefox"] = ":firefox:",
   ["WezTerm"] = ":wezterm:",
-  ["Ghostty"] = ":terminal:",
+  ["Ghostty"] = ":ghostty:",
   ["default"] = ":default:",
 }

@@ -1,24 +1,21 @@
 [plugin]
 prepend_previewers = [
-  { name = "*.md", run = "glow" },
+  { name = "*.md", run = 'piper -- rich -j --left --panel=rounded --guides --line-numbers --force-terminal "$1"' },
 ]
 
 append_previewers = [
   { name = "*/", run = "folder", sync = true },
-  { name = "*.csv", run = "preview" },
-  { mime = "text/*", run = "code" },
   { mime = "*/xml", run = "code" },
   { mime = "*/javascript", run = "code" },
-  { mime = "*/x-wine-extension-ini", run = "code" },
   { name = "*", run = "preview" },
 ]
 
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"
-run  = "git"
+prepend_fetchers = [
+  { id = "git", name = "*", run = "git" },
+  { id = "git", name = "*/", run = "git" },
+  { id = "mactag", name = "*", run = "mactag" },
+  { id = "mactag", name = "*/", run = "mactag" },
+]
 
-[[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"
-run  = "git"
+[mgr]
+ratio = [1, 4, 4]
